@@ -13,12 +13,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
 //import coil.compose.AsyncImage
 import coil.compose.rememberAsyncImagePainter
+import coil.transform.CircleCropTransformation
+import coil.transform.Transformation
 //import coil.compose.rememberImagePainter
 //import coil.request.ImageRequest
 import com.example.movieapp.model.Movie
@@ -59,14 +62,18 @@ fun MovieRow(movie: Movie = getMovies()[0], onItemClick: (String) -> Unit = {}){
 //                )
 
                 Image(
+
                     // on below line we are adding the image url
                     // from which we will  be loading our image.
 //                    painter = rememberAsyncImagePainter("https://media.geeksforgeeks.org/wp-content/uploads/20210101144014/gfglogo.png"),
-                    painter = rememberAsyncImagePainter(model = movie.images[0]),
+                    painter = rememberAsyncImagePainter(
+                        model = movie.images[0],
+                    ),
                     // on below line we are adding content
                     // description for our image.
                     contentDescription = "gfg image",
-                    modifier = Modifier.wrapContentSize()
+                    modifier = Modifier.fillMaxSize(),
+                    contentScale = ContentScale.Crop,
 
                     // on below line we are adding modifier for our
                     // image as wrap content for height and width.
