@@ -3,6 +3,7 @@ package com.example.movieapp.screens.home
 
 
 import android.util.Log
+import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -15,10 +16,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.bawp.movieapp.widgets.MovieRow
 import com.example.movieapp.model.Movie
 import com.example.movieapp.model.getMovies
 import com.example.movieapp.screens.MovieScreens
-import com.example.movieapp.widgets.MovieRow
+
 
 @Composable
 fun HomeScreen(navController: NavController){
@@ -37,6 +39,7 @@ fun HomeScreen(navController: NavController){
     }
 }
 
+@OptIn(ExperimentalAnimationApi::class)
 @Composable
 fun MainContent(
     navController: NavController,
